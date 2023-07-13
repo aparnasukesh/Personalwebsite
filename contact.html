@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Contact - Kelly Bootstrap Template</title>
+  <title>Contact -  Aparna sukesh</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -82,7 +82,7 @@
         </div>
 
         <div>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62365.73358796073!2d75.04469107706956!3d12.325319597997993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba47c4310bede45%3A0xefcac5e1b6e3d680!2sKanhangad%2C%20Kerala!5e0!3m2!1sen!2sin!4v1689017355713!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62365.733584891736!2d75.04477703866989!3d12.325319610901975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba47c4310bede45%3A0xefcac5e1b6e3d680!2sKanhangad%2C%20Kerala!5e0!3m2!1sen!2sin!4v1689141029188!5m2!1sen!2sin" width="1300" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="row mt-5">
@@ -112,22 +112,31 @@
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form>
+            <form role="form" id="form1" class="email-form" method="post" action="https://formsubmit.co/aparnasukesh0723@gmail.com"onsubmit="return validateform()" >
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+              </div>
               <div class="form-group">
-                <!-- <label for="exampleInputEmail1">Email address</label> -->
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div><br>
+                <label for="name">Subject</label>
+                <input type="text" class="form-control" name="subject" id="tex" required>
+              </div>
               <div class="form-group">
-                <!-- <label for="exampleInputPassword1">Password</label> -->
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-              </div><br>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-              </div><br>
-              <button type="submit" class="btn btn-primary">Submit</button>
+                <label for="name">Message</label>
+                <textarea class="form-control" id="text" name="message" rows="10" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit" onclick="validateform()" >Send Message</button></div>
             </form>
 
           </div>
@@ -172,5 +181,39 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+   function validateform(){  
+    var name=document.getElementById("name").value 
+    var text=document.getElementById("text").value 
+    var email=document.getElementById("email").value
+    var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/
+  
+      
+    if (name==null|| name==""){  
+      alert("Name can't be blank");  
+      return false;  
+    }else if(!isNaN(name)){
+    alert(" Invalid Name ");
+    return false;
+    
 
+       }   else if(!email.match(mailformat))
+      {
+        alert("You have entered an invalid email address!");
+        document.form1.email.focus();
+        return false;
+      }  else if(text==""||text==null){  
+        alert("Message null??");  
+        return false;  
+        }
+      else
+      {
+        alert("Form Submitted Successfully");
+      }
+      
+    }
+  </script>
 </html>
